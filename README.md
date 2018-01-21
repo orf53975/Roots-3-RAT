@@ -1,7 +1,7 @@
 # Roots-3-RAT
 Remote administration tool
 
-Update on 21.1.2018 (08:42 UTC) includes:
+Update on 21.1.2018 includes:
 - Remote screenshots in a alternate tab
 - File encryption
 - Process information gathering
