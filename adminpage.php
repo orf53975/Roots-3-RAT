@@ -4,8 +4,7 @@ echo '<font face="arial">';
 if ($_POST)
 {
 	$content1 = ($_POST['text1']);
-	$hashed = crypt($content1, '$1$rasmusle$');
-	if ($hashed == '$1$rasmusle$epcER.6iySwi4W6e7yBcs0')
+	if ($content1 == 'password123dadada')
 	{
 		include 'output.php';
 	}
