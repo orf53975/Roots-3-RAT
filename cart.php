@@ -1,7 +1,8 @@
 <?php
 include 'maincss.html';
 include 'items.php';
-
+$items = '';
+$total = 0;
 if (isset($_POST['clear'])) {
 	setcookie($cartproduct1, "#");
 	setcookie($cartproduct2, "#");
@@ -29,6 +30,7 @@ if ($_COOKIE[$cartproduct1] !== "#")
 	echo '<h2>' . $cartproduct1value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtotal + $cartproduct1value;
+	$items = $items . $product1 . '  ';
 }
 else
 {
@@ -42,6 +44,7 @@ if ($_COOKIE[$cartproduct2] !== "#")
 	echo '<h2>' . $cartproduct2value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtotal + $cartproduct2value;
+	$items = $items . $product2 . '  ';
 }
 else
 {
@@ -55,6 +58,7 @@ if ($_COOKIE[$cartproduct3] !== "#")
 	echo '<h2>' . $cartproduct3value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtotal + $cartproduct3value;
+	$items = $items . $product3 . '  ';
 }
 else
 {
@@ -68,6 +72,7 @@ if ($_COOKIE[$cartproduct4] !== "#")
 	echo '<h2>' . $cartproduct4value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtotal + $cartproduct4value;
+	$items = $items . $product4 . '  ';
 }
 else
 {
@@ -81,6 +86,7 @@ if ($_COOKIE[$cartproduct5] !== "#")
 	echo '<h2>' . $cartproduct5value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtotal + $cartproduct5value;
+	$items = $items . $product5 . '  ';
 }
 else
 {
@@ -94,6 +100,7 @@ if ($_COOKIE[$cartproduct6] !== "#")
 	echo '<h2>' . $cartproduct6value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtotal + $cartproduct6value;
+	$items = $items . $product6 . '  ';
 }
 else
 {
@@ -107,6 +114,7 @@ if ($_COOKIE[$cartproduct7] !== "#")
 	echo '<h2>' . $cartproduct7value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtotal + $cartproduct7value;
+	$items = $items . $product7 . '  ';
 }
 else
 {
@@ -120,6 +128,7 @@ if ($_COOKIE[$cartproduct8] !== "#")
 	echo '<h2>' . $cartproduct8value . ' usd' . '</h2></button></a></h2>';
 
 	$visualtotal = $visualtota8 + $cartproduct8value;
+	$items = $items . $product8 . '  ';
 }
 else
 {
@@ -142,55 +151,7 @@ if ($visualtotal !== 0)
 <form action = "" method = "POST">
 <input name = "clear" class = "button3" type = "submit" value = "clear cart"></input>
 <?php
-$total = 0;
 $items = '';
-if ($_COOKIE[$cartproduct1] !== "#")
-{
-	$items = $items . $product1;
-	$total = $total + $cartproduct1value;
-}
-
-if ($_COOKIE[$cartproduct2] !== "#")
-{
-	$items = $items . $product2;
-	$total = $total + $cartproduct2value;
-}
-
-if ($_COOKIE[$cartproduct3] !== "#")
-{
-	$items = $items . $product3;
-	$total = $total + $cartproduct3value;
-}
-
-if ($_COOKIE[$cartproduct4] !== "#")
-{
-	$items = $items . $product4;
-	$total = $total + $cartproduct4value;
-}
-
-if ($_COOKIE[$cartproduct5] !== "#")
-{
-	$items = $items . $product5;
-	$total = $total + $cartproduct5value;
-}
-
-if ($_COOKIE[$cartproduct6] !== "#")
-{
-	$items = $items . $product6;
-	$total = $total + $cartproduct5value;
-}
-
-if ($_COOKIE[$cartproduct7] !== "#")
-{
-	$items = $items . $product7;
-	$total = $total + $cartproduct7value;
-}
-
-if ($_COOKIE[$cartproduct8] !== "#")
-{
-	$items = $items . $product8;
-	$total = $total + $cartproduct8value;
-}
 
 if (isset($_POST['checkout']))
 {
@@ -227,31 +188,46 @@ if (isset($_POST['checkout2']))
 	fwrite($handle3, "echo '" . "items: " . $items . "<br>value of items: " . $total . ' usd<br>email: ' . $email . '<br>country: ' . $country . '<br>region: ' . $region . '<br>city: ' . $city . '<br>address: ' . $address . '<br>note: ' . $note . '<br><br>' . "';");
 	fclose($handle3);
 
-	$total = 0;
 	$link = 'https://www.paypal.com/cgi-bin/webscr?business=therealcloudmusic@gmail.com&cmd=_xclick&currency_code=USD&amount=*TOTAL*&item_name=';
 
 	if ($_COOKIE[$cartproduct1] !== "#")
 	{
-		$total = $total + $cartproduct1value;
 		$link = $link . '1x ' . $product1 . '  ';
 	}
 
 	if ($_COOKIE[$cartproduct2] !== "#")
 	{
-		$total = $total + $cartproduct2value;
 		$link = $link . '1x ' . $product2 . '  ';
 	}
 
 	if ($_COOKIE[$cartproduct3] !== "#")
 	{
-		$total = $total + $cartproduct3value;
 		$link = $link . '1x ' . $product3 . '  ';
 	}
 
 	if ($_COOKIE[$cartproduct4] !== "#")
 	{
-		$total = $total + $cartproduct4value;
 		$link = $link . '1x ' . $product4 . '  ';
+	}
+
+	if ($_COOKIE[$cartproduct5] !== "#")
+	{
+		$link = $link . '1x ' . $product5 . '  ';
+	}
+
+	if ($_COOKIE[$cartproduct6] !== "#")
+	{
+		$link = $link . '1x ' . $product6 . '  ';
+	}
+
+	if ($_COOKIE[$cartproduct7] !== "#")
+	{
+		$link = $link . '1x ' . $product7 . '  ';
+	}
+
+	if ($_COOKIE[$cartproduct8] !== "#")
+	{
+		$link = $link . '1x ' . $product8 . '  ';
 	}
 
 	$link = str_replace('*TOTAL*', $total, $link);
