@@ -2,35 +2,34 @@
 include 'maincss.html';
 include 'items.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST')
+if (isset($_POST['product1']))
 {
-	if (isset($_POST['product1']))
-	{
-		setcookie($cartproduct1, $cartproduct1);
-	}
+	setcookie($cartproduct1, $cartproduct1);
+}
 
-	if (isset($_POST['product2']))
-	{
-		setcookie($cartproduct2, $cartproduct2);
-	}
+if (isset($_POST['product2']))
+{
+	setcookie($cartproduct2, $cartproduct2);
+}
 
-	if (isset($_POST['product3']))
-	{
-		setcookie($cartproduct3, $cartproduct3);
-	}
+if (isset($_POST['product3']))
+{
+	setcookie($cartproduct3, $cartproduct3);
+}
 
-	if (isset($_POST['product4']))
-	{
-		setcookie($cartproduct4, $cartproduct4);
-	}
+if (isset($_POST['product4']))
+{
+	setcookie($cartproduct4, $cartproduct4);
 }
 ?>
-<div class = "banner1">
-    <li><a class = "button3" href = "shop.php">home</a></li>
-    <li><a class = "button3" href = "cart.php">cart</a></li>
-    <li><a class = "button3" href = "about.php">donate</a></li>
-    <li><a class = "button3" href = "reviews.php">reviews</a></li>
-</div>
+<body>
+    <div class = "banner1">
+        <li><a class = "button3" href = "shop.php">products</a></li>
+        <li><a class = "button3" href = "cart.php">cart</a></li>
+        <li><a class = "button3" href = "about.php">donate</a></li>
+        <li><a class = "button3" href = "post.php">leave feedback</a></li>
+    </div>
+</body>
 <h1>mugs</h1>
 <?php include 'back.html'; ?>
 <form action="" method="post">
@@ -71,3 +70,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 </button>
 </h1>
 </form>
+<?php include 'bottombar.html'; ?>

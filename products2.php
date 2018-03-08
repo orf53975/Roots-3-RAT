@@ -23,15 +23,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	{
 		setcookie($cartproduct8, $cartproduct8);
 	}
+
+	if (isset($_POST['product5']))
+	{
+		setcookie($cartproduct9, $cartproduct9);
+	}
 }
 ?>
-<div class = "banner1">
-    <li><a class = "button3" href = "shop.php">home</a></li>
-    <li><a class = "button3" href = "cart.php">cart</a></li>
-    <li><a class = "button3" href = "about.php">donate</a></li>
-    <li><a class = "button3" href = "reviews.php">reviews</a></li>
-</div>
-<h1>mugs</h1>
+<body>
+    <div class = "banner1">
+        <li><a class = "button3" href = "shop.php">products</a></li>
+        <li><a class = "button3" href = "cart.php">cart</a></li>
+        <li><a class = "button3" href = "about.php">donate</a></li>
+        <li><a class = "button3" href = "post.php">leave feedback</a></li>
+    </div>
+</body>
+<h1>puzzles</h1>
 <?php include 'back.html'; ?>
 <form action="" method="post">
 <h1>
@@ -70,4 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	<h2><input name = "product4" class = "button1" type = "submit" value = "<?php echo $buy; ?>"></input></h2>
 </button>
 </h1>
+<h1>
+<button class="button5">
+	<h2><?php echo $product9; ?></h2>
+	<img class="image1" align="middle" src="<?php echo $image9; ?>">
+	<h3><?php echo $p9size; ?></h3>
+	<h3><?php echo $p9dim; ?></h3>
+	<h2><?php echo $cartproduct9value . ' usd'; ?></h2>
+	<h2><input name = "product5" class = "button1" type = "submit" value = "<?php echo $buy; ?>"></input></h2>
+</button>
 </form>
+<?php include 'bottombar.html' ?>

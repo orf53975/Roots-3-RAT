@@ -4,3 +4,4 @@
 <?php echo '<img src="qr1.png" align="middle">'; ?>
 <h2>bitcoin cash donation address:<br><?php echo $bch ?></h2>
 <?php echo '<img src="qr2.png" align="middle">'; ?>
+<?php include 'bottombar.html' ?>

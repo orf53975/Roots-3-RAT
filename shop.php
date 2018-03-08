@@ -1,5 +1,4 @@
 <?php
-include 'maincss.html';
 include 'topbar.php';
 include 'items.php';
 
@@ -33,5 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 .image2 {
 	width: 180px;
 	height: 180px;
+	border: solid #009dff 8px;
+    padding: 10px;
+    border-radius: 10px;
 }
 </style>
+<?php include 'bottombar.html' ?>

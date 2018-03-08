@@ -1,8 +1,10 @@
 <?php
 include 'maincss.html';
 include 'items.php';
+
 $items = '';
 $total = 0;
+
 if (isset($_POST['clear'])) {
 	setcookie($cartproduct1, "#");
 	setcookie($cartproduct2, "#");
@@ -12,27 +14,20 @@ if (isset($_POST['clear'])) {
 	setcookie($cartproduct6, "#");
 	setcookie($cartproduct7, "#");
 	setcookie($cartproduct8, "#");
+	setcookie($cartproduct9, "#");
 	header("Location: " . $_SERVER['PHP_SELF']);
 }
 ?>
-<title>Leo's webshop</title>
-<div class = "banner1">
-    <li><a class = "button3" href = "shop.php">home</a></li>
-    <li><a class = "button3" href = "cart.php">cart</a></li>
-    <li><a class = "button3" href = "about.php">donate</a></li>
-    <li><a class = "button3" href = "reviews.php">reviews</a></li>
-</div>
+<body>
+    <div class = "banner1">
+        <li><a class = "button3" href = "shop.php">products</a></li>
+        <li><a class = "button3" href = "cart.php">cart</a></li>
+        <li><a class = "button3" href = "about.php">donate</a></li>
+        <li><a class = "button3" href = "post.php">leave feedback</a></li>
+    </div>
+</body>
 <h1>cart</h1>
 <?php
-$check1 = False;
-$check2 = False;
-$check3 = False;
-$check4 = False;
-$check5 = False;
-$check6 = False;
-$check7 = False;
-$check8 = False;
-
 $secounditem = 0;
 
 if ($_COOKIE[$cartproduct1] !== "#")
@@ -43,7 +38,6 @@ if ($_COOKIE[$cartproduct1] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct1value;
 	$items = $items . $product1 . '  ';
-	$check1 = True;
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -65,7 +59,6 @@ if ($_COOKIE[$cartproduct2] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct2value;
 	$items = $items . $product2 . '  ';
-	$check2 = True;
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -87,7 +80,6 @@ if ($_COOKIE[$cartproduct3] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct3value;
 	$items = $items . $product3 . '  ';
-	$check3 = True;
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -109,7 +101,6 @@ if ($_COOKIE[$cartproduct4] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct4value;
 	$items = $items . $product4 . '  ';
-	$check4 = True;
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -131,7 +122,6 @@ if ($_COOKIE[$cartproduct5] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct5value;
 	$items = $items . $product5 . '  ';
-	$check5 = True;
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -153,7 +143,6 @@ if ($_COOKIE[$cartproduct6] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct6value;
 	$items = $items . $product6 . '  ';
-	$check6 = True;
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -175,7 +164,6 @@ if ($_COOKIE[$cartproduct7] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct7value;
 	$items = $items . $product7 . '  ';
-	$check7 = True;
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -197,7 +185,27 @@ if ($_COOKIE[$cartproduct8] !== "#")
 
 	$visualtotal = $visualtotal + $cartproduct8value;
 	$items = $items . $product8 . '  ';
-	$check8 = True;
+
+	$secounditem = $secounditem + 1;
+	if ($secounditem == 2)
+	{
+		$secounditem = 0;
+		echo '<br>';
+	}
+}
+else
+{
+	$noitems = $noitems + 1;
+}
+
+if ($_COOKIE[$cartproduct9] !== "#")
+{
+	echo '<a href="" class="button4"><h2>' . $product9;
+	echo '</h2><img class="image1" align="middle" src="' . $image9 . '">';
+	echo '<h2>' . $cartproduct9value . ' usd' . '</h2></button></a>';
+
+	$visualtotal = $visualtotal + $cartproduct9value;
+	$items = $items . $product9 . '  ';
 
 	$secounditem = $secounditem + 1;
 	if ($secounditem == 2)
@@ -213,7 +221,7 @@ else
 
 //split
 
-if ($noitems == 8)
+if ($noitems == 9)
 {
 	echo "<h2>no items have been moved to the cart</h2>";
 }
@@ -224,64 +232,6 @@ if ($visualtotal !== 0)
 }
 ?>
 </h3>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript"> google.charts.load('current', {'packages':['corechart']}); google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
-	var data = google.visualization.arrayToDataTable([
-        ['Product', 'Value']
-        <?php
-        if ($check1 == True)
-		{
-			echo ',	["' . $product1 . '", ' . $cartproduct1value . ']';
-		}
-
-		if ($check2 == True)
-		{
-			echo ',	["' . $product2 . '", ' . $cartproduct2value . ']';
-		}
-
-		if ($check3 == True)
-		{
-			echo ',	["' . $product3 . '", ' . $cartproduct3value . ']';
-		}
-
-		if ($check4 == True)
-		{
-			echo ',	["' . $product4 . '", ' . $cartproduct4value . ']';
-		}
-
-		if ($check5 == True)
-		{
-			echo ',	["' . $product5 . '", ' . $cartproduct5value . ']';
-		}
-
-		if ($check6 == True)
-		{
-			echo ',	["' . $product6 . '", ' . $cartproduct6value . ']';
-		}
-
-		if ($check7 == True)
-		{
-			echo ',	["' . $product7 . '", ' . $cartproduct7value . ']';
-		}
-
-		if ($check8 == True)
-		{
-			echo ',	["' . $product8 . '", ' . $cartproduct8value . ']';
-		}
-        ?>
-    ]);
-
-    var options = {
-        title: 'price(s) of product(s)'
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-    chart.draw(data, options);
-    }
-</script>
-<?php if ($visualtotal !== 0) { echo '<h3><div id="piechart" style="width: 650px; height: 400px;"></div></h3>'; } ?>
 <form action = "" method = "POST">
 <input name = "clear" class = "button3" type = "submit" value = "clear cart"></input>
 <?php
@@ -369,6 +319,12 @@ if (isset($_POST['checkout2']))
 		$products = $products . $product8 . '  ';
 	}
 
+	if ($_COOKIE[$cartproduct9] !== "#")
+	{
+		$link = $link . '1x ' . $product9 . '  ';
+		$products = $products . $product9 . '  ';
+	}
+
 	mail("therealcloudmusic@gmail.com", "Transaction", "products: " . $products . "   price: " . $visualtotal . "   price: " . $visualtotal . "   country: " . $country . "   region: " . $region . "   city: " . $city . "   address: " . $address . "   note: " . $note);
 
 	$link = str_replace('*TOTAL*', $visualtotal, $link);
@@ -377,3 +333,4 @@ if (isset($_POST['checkout2']))
 }
 ?>
 </form>
+<?php include 'bottombar.html' ?>

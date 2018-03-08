@@ -7,17 +7,7 @@ if ($_POST)
 	$name = ($_POST['text1']);
 	$content = ($_POST['text2']);
 
-	if ($content == "clear")
-	{
-		$clear = fopen("reviews.html", "w");
-		fclose($clear);
-	}
-	else
-	{
-		$handle = fopen("reviews.html", "a");
-		fwrite($handle, "<h3>poster: " . $name . "<br>" . $content . "</h3>");
-		fclose($handle);
-	}
+	mail("therealcloudmusic@gmail.com", "Feedback", "name: " . $name . "   content:" . $content);
 }
 ?>
 <h1>post review</h1>
@@ -28,3 +18,4 @@ if ($_POST)
 <h2>content</h2>
 <input class = "input2" type = "text" name = "text2"></input>
 </form>
+<?php include 'bottombar.html' ?>
