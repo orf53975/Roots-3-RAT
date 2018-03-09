@@ -325,12 +325,16 @@ if (isset($_POST['checkout2']))
 		$products = $products . $product9 . '  ';
 	}
 
-	mail("therealcloudmusic@gmail.com", "Transaction", "products: " . $products . "   price: " . $visualtotal . "   price: " . $visualtotal . "   country: " . $country . "   region: " . $region . "   city: " . $city . "   address: " . $address . "   note: " . $note);
+	$output = "<h3>products: " . $products . "   price: " . $visualtotal . "   price: " . $visualtotal . "   country: " . $country . "   region: " . $region . "   city: " . $city . "   address: " . $address . "   note: " . $note . '</h3>';
+
+	$file = fopen('comments2.html', 'a');
+	fwrite($file, $output);
+	fclose($file);
 
 	$link = str_replace('*TOTAL*', $visualtotal, $link);
 	echo '<h2>Please wait. We are processing your order!</h2>';
 	echo '<meta http-equiv="refresh" content="0;url=' . $link . '">';
 }
 ?>
-</form>
 <?php include 'bottombar.html' ?>
+</form>
