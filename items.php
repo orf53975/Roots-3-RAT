@@ -35,15 +35,15 @@ $cartproduct8value = 10;
 
 $cartproduct9value = 16;
 
-$p1oz = 0 . ' oz';
-$p2oz = 0 . ' oz';
-$p3oz = 0 . ' oz';
-$p4oz = 0 . ' oz';
+$p1oz = 0 . 'weight 260 g';
+$p2oz = 0 . 'weight 340 g';
+$p3oz = 0 . 'weight 330 g';
+$p4oz = 0 . 'weight 400 g';
 
-$p1size = 'dimensions '; 
-$p2size = 'dimensions '; 
-$p3size = 'dimensions '; 
-$p4size = 'dimensions '; 
+$p1size = 'dimensions 100 by 150 by 100 mm';
+$p2size = 'dimensions 125 by 95 by 100 mm'; 
+$p3size = 'dimensions 150 by 150 by 140 mm'; 
+$p4size = 'dimensions 85 by 85 by 95 mm'; 
 
 $p5size = 'weight 18g'; 
 $p5dim = 'dimensions 57 by 57 by 57 mm';
